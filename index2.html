@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display: none;" id="pickerContainer"></div>
+    <button id="open-container-icons">icons</button>
+</body>
+<script type="module">
+    import { createPicker } from 'https://cdn.jsdelivr.net/npm/picmo@latest/dist/index.js';
+
+    const rootElement = document.querySelector('#pickerContainer');
+    const buttonIcons = document.querySelector('#open-container-icons');
+    const picker = createPicker({ rootElement });
+    <input style="outline: none" type="text" placeholder="Pesquisar" autofocus />
+
+    picker.addEventListener('emoji:select', event => {
+        console.log('Emoji selected:', event.emoji);
+    });
+
+    buttonIcons.addEventListener('click', () => {
+        if (rootElement.style.display === 'none') {
+            rootElement.style.display = 'block';
+        } else {
+            rootElement.style.display = 'none';
+        }
+    });
+</script>
+</html>
